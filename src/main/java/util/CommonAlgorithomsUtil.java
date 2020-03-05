@@ -16,6 +16,9 @@ public class CommonAlgorithomsUtil {
         System.out.println("find data index:"+i);
         int i1 = maxCommonDivisor(13, 3);
         System.out.println("max divisor data:"+i1);
+        System.out.println(reverseWords("ddd eee sss"));
+        System.out.println(isPalindrome(111));
+
     }
 
     /**
@@ -57,6 +60,43 @@ public class CommonAlgorithomsUtil {
         int div = a % b;
 
         return maxCommonDivisor(b, div);
+    }
+
+    /**
+     * 翻转字符串
+     * @param words
+     * @return
+     */
+    public static String reverseWords(String words) {
+
+        StringBuilder result = new StringBuilder();
+        String[] split = words.trim().split("\\s+");
+        int length = split.length - 1;
+        System.out.println("长度为："+length);
+        for(int i = length;i >= 0;i--) {
+            String lastMove = split[i];
+            result.append(lastMove);
+        }
+        return result.toString();
+    }
+
+    /**
+     * 是不是回文数
+     * @param x
+     * @return
+     */
+    public static boolean isPalindrome(int x) {
+        boolean b = false;
+        int y = 0;
+        int z = x;
+        while (z > 0) {
+            y = y * 10 + z % 10;
+            z = z / 10;
+        }
+        if (y == x) {
+            b = true;
+        }
+        return b;
     }
 
 }
